@@ -1,10 +1,10 @@
 {
     "productList": [
         {
-            "product": "Pizzetta",
+            "name": "Pizzetta",
             "price": 1
         },{
-            "product": "Hot Dog",
+            "name": "Hot Dog",
             "price": 2
         }
     ]

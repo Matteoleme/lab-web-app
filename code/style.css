@@ -12,3 +12,9 @@
   float: left;
   width: 50%;
 }
+
+.admin-area{
+  align-content: flex-start;
+  margin-left: 20px;
+  border-radius: 1%;
+}

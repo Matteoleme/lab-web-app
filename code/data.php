@@ -2,11 +2,27 @@
 
 //create a PHP object
 $productObj = new stdClass();
-$productObj->productList = array(new stdClass(),new stdClass());
-$productObj->productList[0]->product = "Arduino";
-$productObj->productList[0]->price  = 7;
-$productObj->productList[1]->product = "Raspberry";
-$productObj->productList[1]->price  = 15;
+$productObj->productList = array();
+
+//connect database
+
+$db_connection = new mysqli('lab-web-app_db_1', 'user', 'password', 'db');
+
+if($db_connection->connect_error){
+    die("connection failed: " . $db_connection->connect_error);
+    }
+
+//SELECT
+
+$result = $db_connection->query("SELECT * FROM `item`");
+if ($result){
+    foreach ($result as $row) {
+        $item = new stdClass();
+        $item->name = $row["name"];
+        $item->barcode = $row["barcode"];
+        $productObj->productList[] = $item;
+    }
+}
 
 $productJson = json_encode($productObj);
 
