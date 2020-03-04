@@ -9,7 +9,9 @@ var app = {
     },
     getProductList: function() {
         // make a HTTP GET request
-        $.getJSON(`${app.baseURL}`)
+        let query_string = window.location.search;
+        console.log(query_string);
+        $.getJSON(`${app.baseURL}$query_string`)
         .done(app.onSuccess)
         .fail(app.onError);
     },
