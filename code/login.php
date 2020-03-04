@@ -36,10 +36,12 @@
         Inserire nuovi prodotti + barcode
     </h4>
         <form action="insert.php" method="POST">
+        <input type="hidden" name="username" value="<?php echo $username?>"/>
+        <input type="hidden" name="password" value="<?php echo $password?>"/>
         <input type="text" name="product">
         <input type="text" name="barcode">
         <input type="submit" value="Inserisci">
         </form>
-    
+			
 </body>
 </html>
