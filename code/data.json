@@ -1,11 +1,8 @@
 {
     "productList": [
         {
-            "name": "Pizzetta",
-            "price": 1
-        },{
-            "name": "Hot Dog",
-            "price": 2
+            "name": "",
+            "barcode": ""
         }
     ]
 }

@@ -28,6 +28,7 @@ var app = {
             let productRow = `<div class="table-row">
             <div class="table-cell">${element.name}</div>
             <div class="table-cell">${element.barcode}</div>
+            <div class="table-cell">${element.img_url} "alt="product image"></div>
             </div>`;
             $("#table-body").append(productRow);
             console.log(productRow);

@@ -1,5 +1,9 @@
 <?php
 
+$query_string = $_SERVER["QUERY_STRING"];
+parse_str($query_string,$query);
+$barcode_value = $query["barcode"]; 
+
 //create a PHP object
 $productObj = new stdClass();
 $productObj->productList = array();
@@ -14,18 +18,21 @@ if($db_connection->connect_error){
 
 //SELECT
 
-$result = $db_connection->query("SELECT * FROM `item`");
+$result = $db_connection->query("SELECT * FROM `item` WHERE `barcode` = '" . $barcode_value . "'");
 if ($result){
     foreach ($result as $row) {
         $item = new stdClass();
         $item->name = $row["name"];
         $item->barcode = $row["barcode"];
+        $item->img_url = $row["img_url"];
         $productObj->productList[] = $item;
     }
 }
 
 $productJson = json_encode($productObj);
 
+// return the string to the client
+header('Content-Type: application/json');
 echo $productJson;
 //1. create a static PHP object
 
