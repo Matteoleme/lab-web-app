@@ -11,7 +11,7 @@ var app = {
         // make a HTTP GET request
         let query_string = window.location.search;
         console.log(query_string);
-        $.getJSON(`${app.baseURL}$query_string`)
+        $.getJSON(`${app.baseURL}${query_string}`)
         .done(app.onSuccess)
         .fail(app.onError);
     },
@@ -28,7 +28,7 @@ var app = {
             let productRow = `<div class="table-row">
             <div class="table-cell">${element.name}</div>
             <div class="table-cell">${element.barcode}</div>
-            <div class="table-cell">${element.img_url} "alt="product image"></div>
+            <div class="table-cell"><img src="${element.img_url}" alt="product image"></div>
             </div>`;
             $("#table-body").append(productRow);
             console.log(productRow);

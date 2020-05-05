@@ -18,7 +18,9 @@ if($db_connection->connect_error){
 
 //SELECT
 
-$result = $db_connection->query("SELECT * FROM `item` WHERE `barcode` = '" . $barcode_value . "'");
+$result = $db_connection->query("SELECT * 
+FROM `item` 
+WHERE `barcode` = '" . $barcode_value . "'");
 if ($result){
     foreach ($result as $row) {
         $item = new stdClass();
