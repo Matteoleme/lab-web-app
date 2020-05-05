@@ -1,0 +1,8 @@
+.light-range {
+    width: 100%;
+}
+
+.card-body>img {
+    width:90%;
+    margin-bottom: 10px;
+}
